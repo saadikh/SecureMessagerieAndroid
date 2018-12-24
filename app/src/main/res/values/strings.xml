@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">appCT</string>
+
+    <string name="username_txt">Username</string>
+    <string name="pwd1_txt">Password</string>
+    <string name="pwd2_txt">Confirme Password</string>
+    <string name="valideBtn">Valider</string>
+
+    <string name="btn">Switch</string>
+
+    <!-- for contact -->
+    <string name="newContactTxt">Username</string>
+    <string name="username">username</string>
+    <string name="newCt">entrez votre username</string>
+    <string name="newContact">saisir du text</string>
+    <string name="btnNewContact">Ajouter</string>
+
+    <string name="info">test reussi !</string>
+    <string name="newMsg">ecrire un msg...</string>
+
+
+    //confirmation process
+    <string name="saveDb">Saving successful</string>
+    <string name="noSaved">Saving failed</string>
+    <string name="login_failed">failed connexion.</string>
+
+
+    <string name="logo">app logo</string>
+    <string name="link_register">Créer un compte ?</string>
+    <string name="link_login">Se connecter ?</string>
+
+
+    //error management
+    <string name="errorPwd">Password no corresponding</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

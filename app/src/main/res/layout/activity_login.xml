@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".activities.LoginActivity">
+
+    <ImageView
+        android:src="@drawable/logo"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:contentDescription="@string/logo"
+        android:paddingBottom="60dp"
+        />
+
+    <TextView
+        android:id="@+id/username_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/username_txt"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/username_box"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <TextView
+        android:id="@+id/pwd1_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pwd1_txt"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/pwd_box"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <Button
+        android:id="@+id/valideBnt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="@string/valideBtn"/>
+
+    <TextView
+        android:id="@+id/link_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/link_register"
+        android:textSize="20sp"/>
+
+</LinearLayout>
