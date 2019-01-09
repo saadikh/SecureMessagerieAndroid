@@ -53,7 +53,7 @@ public class ContactFragment extends Fragment {
         }
     }
 
-    public void addContact(){
+    public void addContact(){ // send fisrt msg
         db= Database.getIstance(getActivity().getApplicationContext());
         db.addContact(username.getText().toString());
         this.setIsClicked(true);

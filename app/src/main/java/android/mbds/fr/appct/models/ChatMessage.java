@@ -7,7 +7,7 @@ public class ChatMessage implements Serializable {
 
     private String messageTxt;
     private String recipientUsername;
-    private long messageTime;
+    private long messageTime; // a revoir
 
     public ChatMessage(String messageTxt, String recipientUsername){
         this.messageTxt = messageTxt;

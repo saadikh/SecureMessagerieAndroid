@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    tools:context="android.mbds.fr.appct.activities.MainActivity"
+    android:weightSum="3"
+    tools:ignore="MissingDefaultResource,Orientation">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        >
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_baobab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="95dp"
+            app:srcCompat="@drawable/ic_message_black_24dp"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_refresh_cnt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            app:srcCompat="@drawable/ic_refresh_black_24dp"/>
+
+
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:id="@+id/fragment_contact_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        />
+
+    <FrameLayout
+        android:id="@+id/fragment_message_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        />
+
+
+
+</LinearLayout>

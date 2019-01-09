@@ -2,15 +2,33 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="android.mbds.fr.appct">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+
+        <!-- broadcast -->
+        <!--
+        <service android:name=".services.RemoteService"></service>
+        <receiver android:name=".services.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        -->
+
+
+        <!-- activities -->
         <activity android:name=".activities.MainActivity" />
-        <activity android:name=".activities.ContactActivity"></activity>
         <activity android:name=".activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,9 +37,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.RegisterActivity" />
-        <activity android:name=".activities.ContactNewActivity" />
-        <activity android:name=".activities.TestActivity" />
-        <activity android:name=".activities.MessageActivity"></activity>
+        <activity android:name=".activities.ContactActivity" />
+
+        <!-- <service android:name=".services.MyServices" /> -->
+
+        <activity android:name=".api.BaobabActivity" >
+        </activity>
+        <activity android:name=".api.TalkActivity"></activity>
     </application>
 
 </manifest>

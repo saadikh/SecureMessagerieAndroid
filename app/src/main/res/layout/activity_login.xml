@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".activities.LoginActivity">
+    tools:context="android.mbds.fr.appct.activities.LoginActivity">
 
     <ImageView
         android:src="@drawable/logo"
@@ -38,7 +38,9 @@
     <EditText
         android:id="@+id/pwd_box"
         android:layout_width="match_parent"
-        android:layout_height="40dp" />
+        android:layout_height="40dp"
+        android:inputType="textPassword"
+        />
 
     <Button
         android:id="@+id/valideBnt"

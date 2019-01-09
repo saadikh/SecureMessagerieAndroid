@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.mbds.fr.appct.R;
+import android.mbds.fr.appct.activities.MainActivity;
 import android.mbds.fr.appct.activities.ContactActivity;
-import android.mbds.fr.appct.activities.ContactNewActivity;
 import android.mbds.fr.appct.database.Database;
 import android.mbds.fr.appct.models.Contact;
 import android.mbds.fr.appct.utils.ContactAdapter;
@@ -50,7 +50,7 @@ public class ContactListFragment extends Fragment {
 
         contactAdapter = new ContactAdapter(result);
 
-        View v = inflater.inflate(R.layout.fragment_contact_list, container, false);
+        View v = inflater.inflate(R.layout.fragment_contact_listbis, container, false);
 
         fct = (FloatingActionButton)v.findViewById(R.id.btn_add_contact);
 
@@ -73,7 +73,7 @@ public class ContactListFragment extends Fragment {
 
 
     public void addContact(){
-        Intent intent = new Intent(getActivity(), ContactNewActivity.class);
+        Intent intent = new Intent(getActivity(), ContactActivity.class);
         startActivity(intent);
     }
 
@@ -128,7 +128,7 @@ public class ContactListFragment extends Fragment {
     }
 
     public void isClickedItem(){
-        Intent i = new Intent(getActivity().getBaseContext(), ContactActivity.class);
+        Intent i = new Intent(getActivity().getBaseContext(), MainActivity.class);
         i.putExtra("username", dataSended);
         getActivity().startActivity(i);
     }

@@ -22,7 +22,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int iviewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_message_item, parent, false); //revoir layout
+                .inflate(R.layout.fragment_messagerie, parent, false); //revoir layout
         return new MyViewHolder(itemView);
     }
 
@@ -46,7 +46,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
         public MyViewHolder(View itemView)
         {
             super(itemView);
-            recipientMessage = (TextView)itemView.findViewById(R.id.recepientMessage);
+            recipientMessage = (TextView)itemView.findViewById(R.id.receiver);
             txtMessage = (TextView)itemView.findViewById(R.id.boxMessage);
 
             /*itemView.setOnClickListener(new View.OnClickListener() {

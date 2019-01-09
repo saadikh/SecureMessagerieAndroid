@@ -2,6 +2,9 @@ package android.mbds.fr.appct.activities;
 
 import android.content.Intent;
 import android.mbds.fr.appct.R;
+import android.mbds.fr.appct.api.model.Login;
+import android.mbds.fr.appct.api.service.RetrofitInstance;
+import android.mbds.fr.appct.api.service.UserClient;
 import android.mbds.fr.appct.database.Database;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +14,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class RegisterActivity extends AppCompatActivity {
+    private UserClient userClient = RetrofitInstance.getRetrofitInstance().create(UserClient.class);
 
     EditText username;
     EditText password1;
@@ -37,7 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
         valideBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveUser();
+                createUserSQLite();
             }
         });
 
@@ -55,7 +66,7 @@ public class RegisterActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void saveUser(){
+    public void createUserSQLite(){
         String name = this.username.getText().toString();
         String pwd1 = this.password1.getText().toString();
         String pwd2 = this.password2.getText().toString();
@@ -65,15 +76,40 @@ public class RegisterActivity extends AppCompatActivity {
                     R.string.errorPwd, Toast.LENGTH_SHORT).show();
         }
         else{
+            //saving for SQLITE
             db= Database.getIstance(getApplicationContext());
             db.addPerson(name, pwd1);
 
-
-            Toast.makeText(getApplicationContext(),
-                    R.string.saveDb, Toast.LENGTH_SHORT).show();
-            //redirect to login page
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
+            //synchronize for tokidev server
+            createUserTokidev(name, pwd1);
         }
+    }
+
+    public void createUserTokidev(String username, String password) {
+        Call<ResponseBody> call = userClient.createUser(new Login(username, password));
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()) {
+                    Toast.makeText(getApplicationContext(),
+                            R.string.saveDb, Toast.LENGTH_SHORT).show();
+                    //redirect to login page
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                    startActivity(intent);
+                    /*try {
+                        Toast.makeText(RegisterActivity.this, response.body().string(), Toast.LENGTH_SHORT).show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }*/
+                } else {
+                    Toast.makeText(RegisterActivity.this, "CreateUser error :/\n"+response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Toast.makeText(RegisterActivity.this, "CreateUser error :/\n" + t, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
